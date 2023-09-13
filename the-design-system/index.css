@@ -106,6 +106,11 @@ select {
 /* Utility Classes        */
 /* ---------------------- */
 
+/* general                */
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1rem);
+}
 
 .grid {
   display: grid;
@@ -118,6 +123,11 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .flex-row {
   display: flex;
@@ -188,7 +198,114 @@ select {
 
 .numbered-title {
   font-family: var(--ff-sans-cond);
-  font-size: var(--fs-700);
+  font-size: var(--fs-500);
   text-transform: uppercase;
   letter-spacing: 4.72px;
+}
+
+.numbered-title span {
+  margin-right: .5em;
+  font-weight: bold;
+  color: hsl( var(--clr-white) / .25 );
+}
+
+/* ---------------------- */
+/* Components             */
+/* ---------------------- */
+
+/* the button             */
+
+.large-button {
+  text-decoration: none;
+  width: 17rem;
+  height: 17rem;
+  border-radius: 50%;
+  outline: 0 solid hsl( var(--clr-white) / .01 );
+  transition: outline-color 600ms ease-in-out, 
+    outline-width 500ms ease-in-out;
+}
+
+.large-button:hover,
+.large-button:focus {
+  outline: 5.5rem solid hsl( var(--clr-white) / .15 );
+}
+
+.primary-navigation {
+  --gap: 8rem;
+  --underline-gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.primary-navigation a {
+  text-decoration: none;
+}
+
+.primary-navigation a > span {
+  font-weight: 700;
+  margin-right: .5em;
+}
+
+.underline-indicators > .underlined-child {
+  display: block;
+  padding: var(--underline-gap, 1rem) 0;
+  border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
+  cursor: pointer;
+}
+
+.underline-indicators > .underlined-child:hover {
+  border-color: hsl( var(--clr-white) / .5 ); 
+}
+
+.underline-indicators > .underlined-child[data-active="true"],
+.underline-indicators > .underlined-child[aria-selected="true"] {
+  border-color: hsl( var(--clr-white) / 1 ); 
+  color: hsl( var(--clr-white) );
+}
+
+.tab-button {
+  /* background: none; */
+  border: none;
+}
+
+.dot-indicators > button {
+  background-color: hsl( var(--clr-white) / .2 );
+  width: 1rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.dot-indicators > button:hover,
+.dot-indicators > button:focus {
+  background-color: hsl( var(--clr-white) / .5 );
+}
+
+
+.dot-indicators > [aria-selected="true"] {
+  background-color: hsl( var(--clr-white) );
+}
+.number-indicators > button {
+  background-color: hsl( var(--clr-dark) );
+  border-color: hsl( var(--clr-white) / .2 );
+  width: 5rem;
+  aspect-ratio: 1;
+  text-align: center;
+  border: 1px solid hsl( var(--clr-white) / .25 );
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.number-indicators > button:hover,
+.number-indicators > button:focus {
+  border-color: hsl( var(--clr-white) );
+}
+
+
+.number-indicators > [aria-selected="true"] {
+  border-color: hsl( var(--clr-white) );
+  background-color: hsl( var(--clr-white) );
+  color: hsl( var(--clr-dark) );
 }
